@@ -14,7 +14,6 @@ class PlateReaderClient:
 
         return res.json()
 
-
     def greeting(self, user: str):
         res = requests.post(
             f'{self.host}/readPlateNumber',
@@ -30,5 +29,6 @@ class PlateReaderClient:
 if __name__ == '__main__':
     client = PlateReaderClient(host='http://127.0.0.1:8080')
     with open('./images/9965.jpg', 'rb') as im:
+        print(im)
         res = client.read_plate_number(im)
         print(res)
